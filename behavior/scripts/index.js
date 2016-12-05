@@ -4,7 +4,7 @@ exports.handle = (client) => {
   // Create steps
   const collectTicker = client.createStep({
       extractInfo() {
-        let ticker = firstOfEntityRole(client.getMessagePart(), 'ticker')
+        let ticker = client.getFirstEntityWithRole(client.getMessagePart(), 'ticker')
 
         if (ticker) {
           client.updateConversationState({
